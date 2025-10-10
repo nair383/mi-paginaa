@@ -1,3 +1,4 @@
+// Validación del formulario
 const form = document.getElementById('contacto');
 
 form.addEventListener('submit', function(event) {
@@ -8,48 +9,26 @@ form.addEventListener('submit', function(event) {
     return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
   }
 
-  // Validaciones
   if (!nombre) {
-    event.preventDefault(); // Solo prevenimos si hay error
+    event.preventDefault();
     alert('Por favor, ingresa tu nombre.');
     form.nombre.focus();
     return;
   }
 
   if (!email || !validarEmail(email)) {
-    event.preventDefault(); // Solo prevenimos si hay error
+    event.preventDefault();
     alert('Por favor, ingresa un correo electrónico válido.');
     form.email.focus();
     return;
   }
 
-  // Si pasa las validaciones, se enviará normalmente a Formspree
-
-  // Mostrar alerta de éxito (opcional)
   alert('¡Gracias! Tus datos han sido registrados con éxito.');
-  
-  // NOTA: No ponemos event.preventDefault() aquí, para que se envíe
-
-  // Opcional: limpiar los campos después de enviar (pero esto puede no ser necesario si se redirige)
-  // form.reset();
+  // No usamos event.preventDefault() aquí para que el formulario se envíe
 });
 
-// --- Resto de tu código sigue igual ---
 
-const articles = document.querySelectorAll('section > article');
-
-articles.forEach(article => {
-  article.style.cursor = 'pointer';
-
-  article.addEventListener('click', () => {
-    const detalle = article.querySelector('.info-detalle');
-
-    if (detalle) {
-      detalle.classList.toggle('show');
-    }
-  });
-});
-
+// Botón de "subir"
 const btnSubir = document.getElementById("btn-subir");
 
 window.addEventListener("scroll", () => {
@@ -60,23 +39,23 @@ btnSubir.addEventListener("click", () => {
   window.scrollTo({ top: 0, behavior: "smooth" });
 });
 
+
+// Mostrar / ocultar detalles de los servicios
 document.querySelectorAll('.toggle-detalle').forEach(toggle => {
   toggle.style.cursor = 'pointer';
 
-  toggle.addEventListener('click', () => {
-    const detalle = toggle.nextElementSibling; // .info-detalle está justo después
+  toggle.addEventListener('click', (event) => {
+    event.stopPropagation(); // Evita conflictos con otros listeners
+
+    const detalle = toggle.nextElementSibling;
 
     if (detalle && detalle.classList.contains('info-detalle')) {
       detalle.classList.toggle('show');
 
-      // Cambiar texto
-      if (detalle.classList.contains('show')) {
-        toggle.textContent = 'Ver menos...';
-      } else {
-        toggle.textContent = 'Ver más...';
-      }
+      // Cambiar el texto del toggle
+      toggle.textContent = detalle.classList.contains('show')
+        ? 'Ver menos...'
+        : 'Ver más...';
     }
   });
 });
-
-
