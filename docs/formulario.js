@@ -1,8 +1,6 @@
 const form = document.getElementById('contacto');
 
-form.addEventListener('submit', async (e) => {
-  e.preventDefault(); // Evita que se recargue la página
-
+form.addEventListener('submit', function(event) {
   const nombre = form.nombre.value.trim();
   const email = form.email.value.trim();
 
@@ -10,37 +8,30 @@ form.addEventListener('submit', async (e) => {
     return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
   }
 
+  // Validaciones
   if (!nombre) {
+    event.preventDefault(); // Solo prevenimos si hay error
     alert('Por favor, ingresa tu nombre.');
     form.nombre.focus();
     return;
   }
 
   if (!email || !validarEmail(email)) {
+    event.preventDefault(); // Solo prevenimos si hay error
     alert('Por favor, ingresa un correo electrónico válido.');
     form.email.focus();
     return;
   }
 
-  // Preparar datos para enviar
-  const formData = new FormData(form);
+  // Si pasa las validaciones, se enviará normalmente a Formspree
 
-  try {
-    const response = await fetch(form.action, {
-      method: form.method,
-      body: formData,
-      headers: { 'Accept': 'application/json' }
-    });
+  // Mostrar alerta de éxito (opcional)
+  alert('¡Gracias! Tus datos han sido registrados con éxito.');
+  
+  // NOTA: No ponemos event.preventDefault() aquí, para que se envíe
 
-    if (response.ok) {
-      alert('¡Gracias por tu mensaje!');
-      form.reset();
-    } else {
-      alert('Hubo un problema enviando el formulario.');
-    }
-  } catch (error) {
-    alert('Error de red o servidor, intenta nuevamente.');
-  }
+  // Opcional: limpiar los campos después de enviar (pero esto puede no ser necesario si se redirige)
+  // form.reset();
 });
 
 // --- Resto de tu código sigue igual ---
