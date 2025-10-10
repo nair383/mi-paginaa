@@ -59,3 +59,24 @@ window.addEventListener("scroll", () => {
 btnSubir.addEventListener("click", () => {
   window.scrollTo({ top: 0, behavior: "smooth" });
 });
+
+document.querySelectorAll('.toggle-detalle').forEach(toggle => {
+  toggle.style.cursor = 'pointer';
+
+  toggle.addEventListener('click', () => {
+    const detalle = toggle.nextElementSibling; // .info-detalle está justo después
+
+    if (detalle && detalle.classList.contains('info-detalle')) {
+      detalle.classList.toggle('show');
+
+      // Cambiar texto
+      if (detalle.classList.contains('show')) {
+        toggle.textContent = 'Ver menos...';
+      } else {
+        toggle.textContent = 'Ver más...';
+      }
+    }
+  });
+});
+
+
