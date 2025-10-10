@@ -31,16 +31,14 @@ form.addEventListener('submit', function(event) {
 const articles = document.querySelectorAll('#servicios article');
 
 articles.forEach(article => {
-  article.style.cursor = 'pointer';
+  const toggleText = article.querySelector('.toggle-detalle');
+  const detalle = article.querySelector('.info-detalle');
 
-  article.addEventListener('click', () => {
-    const detalle = article.querySelector('.info-detalle');
-    const toggleText = article.querySelector('.toggle-detalle');
+  if (toggleText && detalle) {
+    toggleText.style.cursor = 'pointer';
 
-    if (detalle) {
+    toggleText.addEventListener('click', () => {
       detalle.classList.toggle('show');
-
-      // Cambiar texto "Ver más..." / "Ver menos..."
       if (detalle.classList.contains('show')) {
         toggleText.textContent = 'Ver menos...';
       } else {
@@ -60,3 +58,4 @@ window.addEventListener("scroll", () => {
 btnSubir.addEventListener("click", () => {
   window.scrollTo({ top: 0, behavior: "smooth" });
 });
+
