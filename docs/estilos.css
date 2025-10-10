@@ -378,4 +378,18 @@ textarea:-webkit-autofill {
     }
 }
 
+.info-detalle {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+  color: #a0e7e5;
+  font-style: italic;
+}
+
+.info-detalle.show {
+  display: block; /* Para que se vea */
+  max-height: 500px; /* un valor grande para expandir */
+}
+
+
 
