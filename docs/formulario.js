@@ -43,7 +43,6 @@ articles.forEach(article => {
         toggleText.textContent = 'Ver menos...';
       } else {
         toggleText.textContent = 'Ver más...';
-      }
     }
   });
 });
@@ -58,4 +57,5 @@ window.addEventListener("scroll", () => {
 btnSubir.addEventListener("click", () => {
   window.scrollTo({ top: 0, behavior: "smooth" });
 });
+
 
