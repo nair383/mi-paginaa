@@ -1,61 +1,91 @@
-// Validación del formulario
-const form = document.getElementById('contacto');
+function toggleCard(element) {
+    const isActive = element.classList.contains('active');
+    
+  document.querySelectorAll('.item').forEach(item => {
+        item.classList.remove('active');
+    });
 
-form.addEventListener('submit', function(event) {
-  const nombre = form.nombre.value.trim();
-  const email = form.email.value.trim();
-
-  function validarEmail(email) {
-    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
-  }
-
-  if (!nombre) {
-    event.preventDefault();
-    alert('Por favor, ingresa tu nombre.');
-    form.nombre.focus();
-    return;
-  }
-
-  if (!email || !validarEmail(email)) {
-    event.preventDefault();
-    alert('Por favor, ingresa un correo electrónico válido.');
-    form.email.focus();
-    return;
-  }
-
-  alert('¡Gracias! Tus datos han sido registrados con éxito.');
-  // No usamos event.preventDefault() aquí para que el formulario se envíe
-});
-
-
-// Botón de "subir"
-const btnSubir = document.getElementById("btn-subir");
-
-window.addEventListener("scroll", () => {
-  btnSubir.style.display = window.scrollY > 300 ? "block" : "none";
-});
-
-btnSubir.addEventListener("click", () => {
-  window.scrollTo({ top: 0, behavior: "smooth" });
-});
-
-
-// Mostrar / ocultar detalles de los servicios
-document.querySelectorAll('.toggle-detalle').forEach(toggle => {
-  toggle.style.cursor = 'pointer';
-
-  toggle.addEventListener('click', (event) => {
-    event.stopPropagation(); // Evita conflictos con otros listeners
-
-    const detalle = toggle.nextElementSibling;
-
-    if (detalle && detalle.classList.contains('info-detalle')) {
-      detalle.classList.toggle('show');
-
-      // Cambiar el texto del toggle
-      toggle.textContent = detalle.classList.contains('show')
-        ? 'Ver menos...'
-        : 'Ver más...';
+    if (!isActive) {
+        element.classList.add('active');
+        
+        setTimeout(() => {
+            element.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        }, 300);
     }
-  });
-});
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    console.log("Nivvux System Online /_");
+
+    const inputs = document.querySelectorAll('.form-group input, .form-group textarea');
+
+    inputs.forEach(input => {
+        input.addEventListener('input', () => {
+            if (input.value.length > 0) {
+                if (input.checkValidity()) {
+                    input.style.borderColor = "#00ff41"; 
+                } else {
+                    input.style.borderColor = "#ff0033"; 
+                }
+            } else {
+                input.style.borderColor = "#333"; 
+            }
+        });
+    });
+
+    const form = document.getElementById('contacto');
+
+    if (form) {
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            const button = form.querySelector('.submit-btn');
+            const originalText = button.innerText;
+            
+            button.innerText = "ENVIANDO_PAQUETES...";
+            button.disabled = true;
+            button.style.backgroundColor = "#111";
+            button.style.color = "#fff";
+
+            const data = new FormData(form);
+            
+            try {
+                const response = await fetch(form.action, {
+                    method: 'POST',
+                    body: data,
+                    headers: { 'Accept': 'application/json' }
+                });
+
+                if (response.ok) {
+                    button.innerText = "SOLICITUD RECIBIDA [OK]";
+                    button.style.backgroundColor = "#00ff41";
+                    button.style.color = "#000";
+                    form.reset();
+                    
+                    inputs.forEach(i => i.style.borderColor = "#333");
+
+                    setTimeout(() => {
+                        button.innerText = originalText;
+                        button.style.backgroundColor = "#fff";
+                        button.style.color = "#000";
+                        button.disabled = false;
+                    }, 5000);
+
+                } else {
+                    throw new Error("Error en servidor");
+                }
+            } catch (error) {
+                button.innerText = "ERROR_DE_CONEXIÓN [!]";
+                button.style.backgroundColor = "#ff0033";
+                button.style.color = "#fff";
+                
+                setTimeout(() => {
+                    button.innerText = originalText;
+                    button.disabled = false;
+                    button.style.backgroundColor = "#fff";
+                    button.style.color = "#000";
+                }, 3000);
+            }
+        });
+    }
+}); 
