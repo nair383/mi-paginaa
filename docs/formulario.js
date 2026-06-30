@@ -4,7 +4,6 @@ function toggleCard(element) {
     document.querySelectorAll('.item').forEach(item => {
         item.classList.remove('active');
     });
-
     if (!isActive) {
         element.classList.add('active');
         
@@ -13,12 +12,9 @@ function toggleCard(element) {
         }, 300);
     }
 }
-
 document.addEventListener('DOMContentLoaded', () => {
     console.log("Nivvux System: Visual Mode Active /_");
-
     const inputs = document.querySelectorAll('.form-group input, .form-group textarea');
-
     inputs.forEach(input => {
         input.addEventListener('input', () => {
             if (input.value.length > 0) {
@@ -32,5 +28,4 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     });
-
 });
