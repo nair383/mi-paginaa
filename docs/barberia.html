@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Barbería y Peluquería - Barbería Genérica</title>
+    <!-- FontAwesome para iconos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <!-- Enlace a la hoja de estilos (CONECTADO) -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Header / Navegación -->
+    <header>
+        <div class="logo">
+            <span class="barber-pole" aria-hidden="true">💈</span>
+            <h1>Barbería</h1>
+        </div>
+        <nav>
+            <a href="#inicio">Inicio</a>
+            <a href="#servicios">Servicios</a>
+            <a href="#opiniones">Opiniones</a>
+            <a href="#contacto">Contacto</a>
+        </nav>
+        <a href="https://wa.me/56912345678?text=Hola,%20me%20gustaría%20reservar%20una%20hora." target="_blank" class="btn-reserva-nav">Reservar Hora</a>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="inicio" class="hero">
+        <div class="hero-content">
+            <h2>Estilo, Precisión y Buena Atención</h2>
+            <p>La mejor barbería y peluquería en tu zona. Vive una experiencia única con profesionales dedicados a tu estilo.</p>
+            <div class="hero-buttons">
+                <a href="https://wa.me/56912345678?text=Hola,%20me%20gustaría%20reservar%20una%20hora." target="_blank" class="btn-primary"><i class="fab fa-whatsapp"></i> Agendar por WhatsApp</a>
+                <a href="#contacto" class="btn-secondary">¿Cómo llegar?</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Información Destacada -->
+    <section class="quick-info reveal">
+        <div class="info-card">
+            <i class="fas fa-clock"></i>
+            <h3>Horario</h3>
+            <p>Martes a Domingo: 10:00 a.m. - 8:00 p.m.</p>
+            <div id="estado-local" class="estado-widget">Cargando estado...</div>
+        </div>
+        <div class="info-card">
+            <i class="fas fa-map-marker-alt"></i>
+            <h3>Ubicación</h3>
+            <p>Av. Andrés Bello 2425, Providencia (Costanera Center)</p>
+        </div>
+        <div class="info-card">
+            <i class="fas fa-phone-alt"></i>
+            <h3>Teléfono</h3>
+            <p>+56 9 1234 5678</p>
+        </div>
+    </section>
+
+    <!-- Servicios -->
+    <section id="servicios" class="services">
+        <h2 class="section-title reveal">Nuestros Servicios</h2>
+        <div class="services-grid">
+            <div class="service-item reveal reveal-delay-1">
+                <div class="service-icon" aria-hidden="true">✂️</div>
+                <h3>Corte de Cabello</h3>
+                <p>Corte clásico, degradado (fade), asesoría de estilo y lavado premium.</p>
+            </div>
+            <div class="service-item reveal reveal-delay-2">
+                <div class="service-icon" aria-hidden="true">🪒</div>
+                <h3>Perfilado de Barba</h3>
+                <p>Diseño y perfilado con navaja, toalla húmeda y aceites hidratantes.</p>
+            </div>
+            <div class="service-item reveal reveal-delay-3">
+                <div class="service-icon" aria-hidden="true">🔥</div>
+                <h3>Combo Completo</h3>
+                <p>El servicio completo: corte de cabello + perfilado de barba con la mejor atención.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Widget de Cotizador Interactivo -->
+    <section id="cotizador" class="cotizador-section reveal">
+        <h2 class="section-title">Calcula tu Servicio</h2>
+        <div class="cotizador-container">
+            <p class="cotizador-instrucciones">Selecciona los servicios que deseas para calcular tu total:</p>
+            
+            <div class="cotizador-opciones">
+                <label class="cotizador-item">
+                    <input type="checkbox" class="servicio-check" data-id="corte" data-nombre="Corte de Cabello" data-precio="10000">
+                    <span class="servicio-nombre">Corte de Cabello ($10.000)</span>
+                </label>
+                <label class="cotizador-item">
+                    <input type="checkbox" class="servicio-check" data-id="barba" data-nombre="Perfilado de Barba" data-precio="8000">
+                    <span class="servicio-nombre">Perfilado de Barba ($8.000)</span>
+                </label>
+                <label class="cotizador-item">
+                    <input type="checkbox" class="servicio-check" data-id="combo" data-nombre="Combo Especial" data-precio="15000">
+                    <span class="servicio-nombre">Combo Completo ($15.000)</span>
+                </label>
+            </div>
+
+            <div class="cotizador-total">
+                <h3 id="mensaje-ahorro" style="font-size: 1rem; color: var(--primary); margin-bottom: 10px; display: none;">
+                    🎉 ¡Te aplicamos el precio del Combo Completo!
+                </h3>
+                <h3>Total Estimado: <span id="precio-total">$0</span></h3>
+                <a id="btn-agendar-cotizacion" target="_blank" class="btn-primary" style="display: none; cursor: pointer;">
+                    <i class="fab fa-whatsapp"></i> Reservar esta combinación
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Opiniones de Google Maps -->
+    <section id="opiniones" class="reviews-section">
+        <h2 class="section-title reveal">Lo que dicen nuestros clientes</h2>
+        <div class="reviews-container">
+            <!-- Review 1 -->
+            <div class="review-card reveal reveal-delay-1">
+                <div class="review-header">
+                    <span class="user-avatar">J</span>
+                    <div>
+                        <h4>Juan Pérez</h4>
+                        <div class="stars">⭐⭐⭐⭐⭐</div>
+                    </div>
+                </div>
+                <p class="review-text">"Excelente atención, el local muy limpio y los barberos son muy profesionales. 100% recomendado."</p>
+                <div class="owner-reply">
+                    <strong>Respuesta de Barbería Genérica:</strong>
+                    <p>"¡Muchas gracias por tu preferencia! Esperamos verte de vuelta pronto."</p>
+                </div>
+            </div>
+
+            <!-- Review 2 -->
+            <div class="review-card reveal reveal-delay-2">
+                <div class="review-header">
+                    <span class="user-avatar">M</span>
+                    <div>
+                        <h4>Mateo Silva</h4>
+                        <div class="stars">⭐⭐⭐⭐⭐</div>
+                    </div>
+                </div>
+                <p class="review-text">"La mejor barbería del sector. Buena música, excelente ambiente y el corte quedó perfecto."</p>
+            </div>
+
+            <!-- Review 3 -->
+            <div class="review-card reveal reveal-delay-3">
+                <div class="review-header">
+                    <span class="user-avatar">C</span>
+                    <div>
+                        <h4>Carlos Muñoz</h4>
+                        <div class="stars">⭐⭐⭐⭐⭐</div>
+                    </div>
+                </div>
+                <p class="review-text">"Atención de primera, puntuales con la hora de reserva y muy amables."</p>
+                <div class="owner-reply">
+                    <strong>Respuesta de Barbería Genérica:</strong>
+                    <p>"¡Gracias Carlos! Nos esforzamos siempre por dar el mejor servicio."</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Ubicación y Contacto -->
+    <section id="contacto" class="contact-section">
+        <h2 class="section-title">¿Dónde estamos?</h2>
+        <p class="address-text">
+            <i class="fas fa-map-marker-alt"></i> Av. Andrés Bello 2425, Providencia, Santiago, Región Metropolitana<br>
+            <span class="sub-address">(Ubicado en Mall Costanera Center)</span>
+        </p>
+
+        <!-- Google Maps Iframe Widget -->
+        <div class="map-container">
+            <iframe 
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3330.134371904797!2d-70.6086786!3d-33.4188734!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9662cf397984f93f%3A0xe2128e469aa7da25!2sCostanera%20Center!5e0!3m2!1ses-419!2scl!4v1710000000000!5m2!1ses-419!2scl" 
+                width="100%" 
+                height="450" 
+                style="border:0;" 
+                allowfullscreen="" 
+                loading="lazy" 
+                referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 Barbería Genérica. Todos los derechos reservados.</p>
+        <p>Plantilla base optimizada.</p>
+    </footer>
+
+    <!-- Botones Flotantes Laterales (WhatsApp e Instagram) -->
+    <div class="social-float-container">
+        <!-- Botón Instagram -->
+        <a href="https://www.instagram.com/barberiagenerica" class="float-btn insta-float" target="_blank" aria-label="Instagram">
+            <i class="fab fa-instagram"></i>
+        </a>
+        <!-- Botón WhatsApp -->
+        <a href="https://wa.me/56912345678?text=Hola,%20me%20gustaría%20reservar%20una%20hora." class="float-btn wsp-float-new" target="_blank" aria-label="WhatsApp">
+            <i class="fab fa-whatsapp"></i>
+        </a>
+    </div>
+
+    <!-- Script de comportamiento (CONECTADO) -->
+    <script src="scriptt.js" defer></script>
+</body>
+</html>
