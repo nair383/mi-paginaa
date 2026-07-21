@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trayectoria | Evial Ingenieros Asociados</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- 1. Fondo general de partículas interactivas -->
+    <div id="particles-js"></div>
+
+    <!-- 2. Contenedor principal: Diseño de dos columnas (Sidebar fija + Contenido con scroll) -->
+    <div class="layout-interior">
+        
+        <!-- Columna Izquierda: Identidad y Menú de Navegación Lateral (Fijo) -->
+        <aside class="sidebar-interior">
+            <div class="sidebar-header">
+                <h1 class="logo-marca"><a href="evial.html" style="color: inherit; text-decoration: none;">Evial</a></h1>
+                <p class="subtitulo-header">Ingeniería y Consultoría Vial</p>
+            </div>
+            
+            <div class="logo-container">
+                <img src="logo.jpg" alt="Logo Evial" class="main-logo-img">
+            </div>
+
+            <nav class="directorio-links">
+                <a href="evial.html">Inicio</a>
+                <a href="servicios.html">Servicios</a>
+                <a href="trayectoria.html" class="activo-link">Trayectoria</a>
+                <a href="proyectos.html">Proyectos</a>
+                <a href="#" onclick="abrirExpertise(event)">Expertise</a>
+                <a href="contacto.html">Contacto</a>
+            </nav>
+        </aside>
+
+        <!-- Columna Derecha: Contenido de Trayectoria con Tarjetas y Desplegables -->
+        <main class="content-interior">
+            
+            <!-- Encabezado de la Sección -->
+            <section class="content-section">
+                <div class="hero-info-box">
+                    <h2>📈 Nuestra Historia</h2>
+                    <h3>Más de 3 Décadas de Trayectoria y Solidez</h3>
+                    <p>Desde nuestros inicios, en Evial nos hemos consolidado como un referente técnico en estudios de impacto vial, movilidad urbana y mitigación de flujos vehiculares, respaldados por un equipo de profesionales altamente calificados.</p>
+                </div>
+            </section>
+
+            <!-- Hitos Clave en Tarjetas Interactivas -->
+            <section class="content-section">
+                <h2>Hitos Fundamentales</h2>
+                <div class="cards-grid">
+                    <div class="card">
+                        <h4>+30 Años de Experiencia</h4>
+                        <p>Trayectoria ininterrumpida entregando soluciones de ingeniería de transporte con altos estándares de calidad y rigor normativo.</p>
+                    </div>
+                    <div class="card">
+                        <h4>+500 Proyectos Exitosos</h4>
+                        <p>Desarrollo integral de estudios viales, IMIV y planes de mitigación a lo largo de todo el país para el sector público y privado.</p>
+                    </div>
+                    <div class="card">
+                        <h4>Innovación Tecnológica</h4>
+                        <p>Incorporación constante de herramientas de modelación de tráfico de última generación y metodologías avanzadas de análisis urbano.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Sección de Acordeones / Menús Desplegables Interactivos -->
+            <section class="content-section">
+                <h2>Evolución y Compromiso</h2>
+                <div class="accordion-container">
+                    
+                    <div class="accordion-item">
+                        <button class="accordion-header" onclick="toggleAccordion(this)">
+                            <span>01. Rigurosidad Normativa y Técnica</span>
+                            <span class="accordion-icon">+</span>
+                        </button>
+                        <div class="accordion-content">
+                            <p>Nos adaptamos de forma estricta a los marcos regulatorios vigentes (como la Ley de Aportes al Espacio Público y directrices de la SECTRA), garantizando tramitaciones fluidas y sin contratiempos ante las autoridades competentes.</p>
+                        </div>
+                    </div>
+
+                    <div class="accordion-item">
+                        <button class="accordion-header" onclick="toggleAccordion(this)">
+                            <span>02. Enfoque Multidisciplinario</span>
+                            <span class="accordion-icon">+</span>
+                        </button>
+                        <div class="accordion-content">
+                            <p>Nuestro equipo combina la experiencia de ingenieros viales, modeladores de tránsito y especialistas en urbanismo para ofrecer una visión holística de cada proyecto de infraestructura.</p>
+                        </div>
+                    </div>
+
+                    <div class="accordion-item">
+                        <button class="accordion-header" onclick="toggleAccordion(this)">
+                            <span>03. Compromiso con el Desarrollo Sostenible</span>
+                            <span class="accordion-icon">+</span>
+                        </button>
+                        <div class="accordion-content">
+                            <p>Cada solución de mitigación y diseño geométrico busca equilibrar la eficiencia vehicular con la seguridad peatonal y la integración armónica con el entorno urbano.</p>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+
+            <!-- Llamado a la Acción Final -->
+            <section class="content-section contact-section">
+                <h2>● ¿Trabajamos juntos?</h2>
+                <h3>Confía tu próximo proyecto a manos expertas</h3>
+                <p>Descubre cómo nuestra experiencia puede marcar la diferencia en la viabilidad técnica de tu iniciativa.</p>
+                <div class="contact-actions">
+                    <a href="contacto.html" class="btn-primary">📅 Agendar Consultoría</a>
+                    <a href="proyectos.html" class="btn-secondary">Ver Proyectos →</a>
+                </div>
+            </section>
+
+        </main>
+    </div>
+
+    <!-- 4. Ventana Flotante (Modal) para Expertise -->
+    <div id="expertise-modal" class="modal-overlay">
+        <div class="modal-content">
+            <button class="modal-close" onclick="cerrarExpertise()">&times;</button>
+            <h2 class="modal-title">Nuestra Expertise</h2>
+            <p class="modal-subtitle">Conoce las áreas clave de especialización técnica de nuestra consultora</p>
+            
+            <div class="modal-cards-grid">
+                <div class="modal-card">
+                    <img src="logo.jpg" alt="Logo" class="modal-card-logo">
+                    <span>Informe de Mitigación de Impacto Vial<br><small>Para Solicitud de Permiso de Edificación</small></span>
+                </div>
+                <div class="modal-card">
+                    <img src="logo.jpg" alt="Logo" class="modal-card-logo">
+                    <span>Medidas de Mitigación<br><small>Elaboración de Proyectos</small></span>
+                </div>
+                <div class="modal-card">
+                    <img src="logo.jpg" alt="Logo" class="modal-card-logo">
+                    <span>Análisis Vial Básico<br><small>Para Factibilidad de Acceso en vía MOP</small></span>
+                </div>
+                <div class="modal-card">
+                    <img src="logo.jpg" alt="Logo" class="modal-card-logo">
+                    <span>Desvíos de Tránsito<br><small>Por afectación a la libre circulación Vehicular y peatonal</small></span>
+                </div>
+                <div class="modal-card">
+                    <img src="logo.jpg" alt="Logo" class="modal-card-logo">
+                    <span>Estudios de Factibilidad Vial<br><small>Estudios para la toma de decisión</small></span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts de Partículas y Funcionalidad Interactiva -->
+  <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

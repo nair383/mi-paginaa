@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Servicios | Evial Ingenieros Asociados</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- 1. Fondo general de partículas interactivas -->
+    <div id="particles-js"></div>
+
+    <!-- 2. Contenedor principal: Diseño de dos columnas (Sidebar fija + Contenido con scroll) -->
+    <div class="layout-interior">
+        
+        <!-- Columna Izquierda: Identidad y Menú de Navegación Lateral (Fijo) -->
+        <aside class="sidebar-interior">
+            <div class="sidebar-header">
+                <h1 class="logo-marca"><a href="evial.html" style="color: inherit; text-decoration: none;">Evial</a></h1>
+                <p class="subtitulo-header">Ingeniería y Consultoría Vial</p>
+            </div>
+            
+            <div class="logo-container">
+                <img src="logo.jpg" alt="Logo Evial" class="main-logo-img">
+            </div>
+
+            <nav class="directorio-links">
+                <a href="evial.html">Inicio</a>
+                <a href="servicios.html" class="activo-link">Servicios</a>
+                <a href="trayectoria.html">Trayectoria</a>
+                <a href="proyectos.html">Proyectos</a>
+                <a href="#" onclick="abrirExpertise(event)">Expertise</a>
+                <a href="contacto.html">Contacto</a>
+            </nav>
+        </aside>
+
+        <!-- Columna Derecha: Contenido de Servicios -->
+        <main class="content-interior">
+            
+            <!-- Encabezado de la Sección -->
+            <section class="content-section">
+                <div class="hero-info-box">
+                    <h2>⚙️ Soluciones Técnicas Especializadas</h2>
+                    <h3>Nuestros Servicios en Ingeniería y Movilidad</h3>
+                    <p>Ofrecemos consultoría integral de alto nivel técnico para respaldar la viabilidad y aprobación normativa de proyectos inmobiliarios, industriales y urbanos.</p>
+                </div>
+            </section>
+
+            <!-- Tarjetas de Servicios Principales -->
+            <section class="content-section">
+                <h2>Áreas de Prestación</h2>
+                <div class="cards-grid">
+                    <div class="card">
+                        <h4>IMIV y Estudios de Tránsito</h4>
+                        <p>Desarrollo de Informes de Mitigación de Impacto Vial en todas sus categorías, evaluando flujos vehiculares y peatonales según la normativa vigente.</p>
+                    </div>
+                    <div class="card">
+                        <h4>Proyectos de Mitigación Vial</h4>
+                        <p>Diseño detallado de obras geométricas, ensanches, pistas de aceleración/desaceleración y optimización de intersecciones semaforizadas.</p>
+                    </div>
+                    <div class="card">
+                        <h4>Estudios de Factibilidad</h4>
+                        <p>Análisis viales preliminares y de accesibilidad para la toma de decisiones estratégicas e ingresos a vías tuición MOP o Serviu.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Sección de Acordeones con Mayor Detalle -->
+            <section class="content-section">
+                <h2>Detalle Operativo</h2>
+                <div class="accordion-container">
+                    
+                    <div class="accordion-item">
+                        <button class="accordion-header" onclick="toggleAccordion(this)">
+                            <span>01. Planificación de Desvíos de Tránsito (PDT)</span>
+                            <span class="accordion-icon">+</span>
+                        </button>
+                        <div class="accordion-content">
+                            <p>Diseño de soluciones logísticas temporales para resguardar la seguridad y continuidad operacional durante el desarrollo de obras civiles en la vía pública.</p>
+                        </div>
+                    </div>
+
+                    <div class="accordion-item">
+    <button class="accordion-header" onclick="toggleAccordion(this)">
+        <span>02. Modelación y Simulación de Tráfico</span>
+        <span class="accordion-icon">+</span>
+    </button>
+    <div class="accordion-content">
+        <p>Uso de herramientas avanzadas para modelar el comportamiento vehicular en escenarios complejos de congestión y propuesta de medidas correctivas.</p>
+    </div>
+</div>
+
+                    <div class="accordion-item">
+                        <button class="accordion-header" onclick="toggleAccordion(this)">
+                            <span>03. Tramitación y Gestión ante Organismos</span>
+                            <span class="accordion-icon">+</span>
+                        </button>
+                        <div class="accordion-content">
+                            <p>Acompañamiento técnico integral durante los procesos de revisión y aprobación en SEREMI de Transportes, DOM y entidades ministeriales.</p>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+
+            <!-- Llamado a la Acción Final -->
+            <section class="content-section contact-section">
+                <h2>● ¿Necesitas asesoría especializada?</h2>
+                <h3>Conversemos sobre los requerimientos de tu iniciativa</h3>
+                <p>Nuestro equipo técnico está preparado para optimizar los plazos de tus aprobaciones sectoriales.</p>
+                <div class="contact-actions">
+                    <a href="contacto.html" class="btn-primary">📅 Solicitar Cotización</a>
+                    <a href="proyectos.html" class="btn-secondary">Ver Casos de Éxito →</a>
+                </div>
+            </section>
+
+        </main>
+    </div>
+
+       <!-- 4. Ventana Flotante (Modal) para Expertise -->
+    <div id="expertise-modal" class="modal-overlay">
+        <div class="modal-content">
+            <button class="modal-close" onclick="cerrarExpertise()">&times;</button>
+            <h2 class="modal-title">Nuestra Expertise</h2>
+            <p class="modal-subtitle">Conoce las áreas clave de especialización técnica de nuestra consultora</p>
+            
+            <div class="modal-cards-grid">
+                <div class="modal-card">
+                    <img src="logo.jpg" alt="Logo" class="modal-card-logo">
+                    <span>Informe de Mitigación de Impacto Vial<br><small>Para Solicitud de Permiso de Edificación</small></span>
+                </div>
+                <div class="modal-card">
+                    <img src="logo.jpg" alt="Logo" class="modal-card-logo">
+                    <span>Medidas de Mitigación<br><small>Elaboración de Proyectos</small></span>
+                </div>
+                <div class="modal-card">
+                    <img src="logo.jpg" alt="Logo" class="modal-card-logo">
+                    <span>Análisis Vial Básico<br><small>Para Factibilidad de Acceso en vía MOP</small></span>
+                </div>
+                <div class="modal-card">
+                    <img src="logo.jpg" alt="Logo" class="modal-card-logo">
+                    <span>Desvíos de Tránsito<br><small>Por afectación a la libre circulación Vehicular y peatonal</small></span>
+                </div>
+                <div class="modal-card">
+                    <img src="logo.jpg" alt="Logo" class="modal-card-logo">
+                    <span>Estudios de Factibilidad Vial<br><small>Estudios para la toma de decisión</small></span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts de Partículas y Funcionalidad Interactiva -->
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
