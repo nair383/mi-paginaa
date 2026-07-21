@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proyectos | Evial Ingenieros Asociados</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- 1. Fondo general de partículas interactivas -->
+    <div id="particles-js"></div>
+
+    <!-- 2. Contenedor principal: Diseño de dos columnas (Sidebar fija + Contenido con scroll) -->
+    <div class="layout-interior">
+        
+        <!-- Columna Izquierda: Identidad y Menú de Navegación Lateral (Fijo) -->
+        <aside class="sidebar-interior">
+            <div class="sidebar-header">
+                <h1 class="logo-marca"><a href="evial.html" style="color: inherit; text-decoration: none;">Evial</a></h1>
+                <p class="subtitulo-header">Ingeniería y Consultoría Vial</p>
+            </div>
+            
+            <div class="logo-container">
+                <img src="logo.jpg" alt="Logo Evial" class="main-logo-img">
+            </div>
+
+            <nav class="directorio-links">
+                <a href="evial.html">Inicio</a>
+                <a href="servicios.html">Servicios</a>
+                <a href="trayectoria.html">Trayectoria</a>
+                <a href="proyectos.html" class="activo-link">Proyectos</a>
+                <a href="#" onclick="abrirExpertise(event)">Expertise</a>
+                <a href="contacto.html">Contacto</a>
+            </nav>
+        </aside>
+
+        <!-- Columna Derecha: Contenido de Proyectos con Galería Interactiva y Casos de Éxito -->
+        <main class="content-interior">
+            
+            <!-- Encabezado de la Sección -->
+            <section class="content-section">
+                <div class="hero-info-box">
+                    <h2>🏗️ Portafolio de Obras y Estudios</h2>
+                    <h3>Casos de Éxito en Movilidad y Mitigación</h3>
+                    <p>Explora una selección de nuestros proyectos más destacados desarrollados para el sector inmobiliario, industrial y público, garantizando una integración urbana eficiente y cumplimiento normativo riguroso.</p>
+                </div>
+            </section>
+
+            <!-- Galería de Proyectos / Casos Destacados -->
+            <section class="content-section">
+                <h2>Proyectos Emblemáticos</h2>
+                <div class="cards-grid">
+                    <div class="card">
+                        <h4>Parque Comercial Los Conquistadores</h4>
+                        <p>Desarrollo integral de IMIV Mayor, diseño geométrico de accesos principales y plan de mitigación de flujos vehiculares en zona de alta congestión.</p>
+                    </div>
+                    <div class="card">
+                        <h4>Complejo Logístico Intermodal Norte</h4>
+                        <p>Estudio de impacto de transportes de carga pesada, modelación de giros críticos y validación de estándares ante la SEREMI de Transportes.</p>
+                    </div>
+                    <div class="card">
+                        <h4>Proyecto Habitacional Alturas de Ñuñoa</h4>
+                        <p>Mitigación vial detallada, análisis de capacidad de intersecciones semaforizadas y diseño de medidas de rebalse para el flujo peatonal y vehicular.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Sección de Acordeones con Detalles Técnicos de Proyectos -->
+            <section class="content-section">
+                <h2>Tipologías de Intervención</h2>
+                <div class="accordion-container">
+                    
+                    <div class="accordion-item">
+                        <button class="accordion-header" onclick="toggleAccordion(this)">
+                            <span>01. Estudios de Impacto sobre el Sistema de Movilidad Urbana (IMIV)</span>
+                            <span class="accordion-icon">+</span>
+                        </button>
+                        <div class="accordion-content">
+                            <p>Evaluación integral bajo la normativa vigente, midiendo las repercusiones operacionales de proyectos inmobiliarios y mayores sobre la red vial existente, proponiendo soluciones constructivas y operativas viables.</p>
+                        </div>
+                    </div>
+
+                    <div class="accordion-item">
+                        <button class="accordion-header" onclick="toggleAccordion(this)">
+                            <span>02. Proyectos de Obras de Mitigación y Pavimentación</span>
+                            <span class="accordion-icon">+</span>
+                        </button>
+                        <div class="accordion-content">
+                            <p>Diseño técnico de ensanches de calzada, pistas de aceleración y desaceleración, refugios peatonales y optimización de señalización vertical y horizontal aprobados por los organismos competentes.</p>
+                        </div>
+                    </div>
+
+                    <div class="accordion-item">
+                        <button class="accordion-header" onclick="toggleAccordion(this)">
+                            <span>03. Planes de Desvíos de Tránsito (PDT)</span>
+                            <span class="accordion-icon">+</span>
+                        </button>
+                        <div class="accordion-content">
+                            <p>Planificación logística y operativa para minimizar el impacto en superficie durante las fases de construcción de obras civiles de gran envergadura en entornos urbanos consolidados.</p>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+
+            <!-- Llamado a la Acción Final -->
+            <section class="content-section contact-section">
+                <h2>● ¿Tienes un proyecto en mente?</h2>
+                <h3>Conversemos sobre las necesidades viales de tu iniciativa</h3>
+                <p>Nuestro equipo técnico está preparado para evaluar la factibilidad y optimizar los tiempos de tramitación de tu proyecto.</p>
+                <div class="contact-actions">
+                    <a href="contacto.html" class="btn-primary">📅 Cotizar Proyecto</a>
+                    <a href="servicios.html" class="btn-secondary">Ver Servicios →</a>
+                </div>
+            </section>
+
+        </main>
+    </div>
+
+     <!-- 4. Ventana Flotante (Modal) para Expertise -->
+    <div id="expertise-modal" class="modal-overlay">
+        <div class="modal-content">
+            <button class="modal-close" onclick="cerrarExpertise()">&times;</button>
+            <h2 class="modal-title">Nuestra Expertise</h2>
+            <p class="modal-subtitle">Conoce las áreas clave de especialización técnica de nuestra consultora</p>
+            
+            <div class="modal-cards-grid">
+                <div class="modal-card">
+                    <img src="logo.jpg" alt="Logo" class="modal-card-logo">
+                    <span>Informe de Mitigación de Impacto Vial<br><small>Para Solicitud de Permiso de Edificación</small></span>
+                </div>
+                <div class="modal-card">
+                    <img src="logo.jpg" alt="Logo" class="modal-card-logo">
+                    <span>Medidas de Mitigación<br><small>Elaboración de Proyectos</small></span>
+                </div>
+                <div class="modal-card">
+                    <img src="logo.jpg" alt="Logo" class="modal-card-logo">
+                    <span>Análisis Vial Básico<br><small>Para Factibilidad de Acceso en vía MOP</small></span>
+                </div>
+                <div class="modal-card">
+                    <img src="logo.jpg" alt="Logo" class="modal-card-logo">
+                    <span>Desvíos de Tránsito<br><small>Por afectación a la libre circulación Vehicular y peatonal</small></span>
+                </div>
+                <div class="modal-card">
+                    <img src="logo.jpg" alt="Logo" class="modal-card-logo">
+                    <span>Estudios de Factibilidad Vial<br><small>Estudios para la toma de decisión</small></span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts de Partículas y Funcionalidad Interactiva -->
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
